@@ -31,8 +31,8 @@ How to install our app:
 ## Developed by✒️
 
 - **Andrés Soto** - [github](https://github.com/AndresSotoLopez/)
-- **Rubén Pallin** - [github](https://github.com/RubenPallin)
-- **Raul Brea** - [github](https://github.com/RaulBreaFernandez)
-- **Alicia Bogarin** - [github](https://github.com/AliBogarin)
+- **Rubén Pallín** - [github](https://github.com/RubenPallin)
+- **Raúl Brea** - [github](https://github.com/RaulBreaFernandez)
+- **Alicia Bogarín** - [github](https://github.com/AliBogarin)
 - **Diego Coira** - [github](https://github.com/DiegoCoirap)
 
