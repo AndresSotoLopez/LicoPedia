@@ -1,4 +1,4 @@
-package com.example.licopedia;
+package com.app.licopedia;
 
 import org.junit.Test;
 
