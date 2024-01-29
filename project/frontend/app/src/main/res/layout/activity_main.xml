@@ -1,18 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="30dp"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <TextView
+        android:id="@+id/cabecera_EditUsuTexView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Cabecera"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+/>
+
+    <TextView
+        android:id="@+id/tituloEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="20dp"
+        android:text="@string/Email"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/casilla_rellenar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:hint="usario@hotmail.es"
+
+        />
+
+    <TextView
+        android:id="@+id/tituloUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/Usuario"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+
+    <EditText
+        android:id="@+id/casilla_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:hint="joe.doe"
+
+        />
+    <TextView
+        android:id="@+id/tituloNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/Nombre"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+
+    <EditText
+        android:id="@+id/casilla_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:hint="Homer"
+
+        />
+    <TextView
+        android:id="@+id/tituloApellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/Apellidos"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+
+    <EditText
+        android:id="@+id/casilla_apellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:hint="J. Simpsons"
+        />
+
+    <TextView
+        android:id="@+id/tituloContraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/Contraseña"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+
+    <EditText
+        android:id="@+id/casilla_contraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:hint="*********"
+/>
+
+
+    <TextView
+        android:id="@+id/tituloRepetirContraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/Repetir_cont"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+
+    <EditText
+        android:id="@+id/casilla_repetirContra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:hint="********"
+
+        />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:text="@string/Aceptar" />
+    </LinearLayout>
+</ScrollView>
