@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Licopedia</string>
     <string name="Cabecera">Editar Usuario</string>
-    <string name="Email">Email *</string>
-    <string name="Usuario">Usuario *</string>
-    <string name="Nombre">Nombre *</string>
-    <string name="Apellidos"> Apellidos *</string>
-    <string name="Contraseña">Contraseña *</string>
-    <string name="Repetir_cont">Repetir Contraseña</string>
-    <string name="Aceptar">Aceptar</string>
+    <string name="Email"> Email * </string>
+    <string name="Usuario"> Usuario * </string>
+    <string name="Nombre"> Nombre * </string>
+    <string name="Apellidos"> Apellidos * </string>
+    <string name="Contraseña"> Contraseña * </string>
+    <string name="Repetir_cont"> Repetir Contraseña </string>
+    <string name="Aceptar"> Aceptar </string>
 </resources>

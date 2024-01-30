@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:padding="30dp"
     tools:context=".MainActivity">
     <LinearLayout
@@ -19,6 +19,9 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:textColor="@color/black"
+        android:gravity="center"
+        android:background="@color/blue_face"
+
 />
 
     <TextView
@@ -33,7 +36,7 @@
 
 
     <EditText
-        android:id="@+id/casilla_rellenar"
+        android:id="@+id/casilla_rellenarEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -146,10 +149,12 @@
 
 
         <Button
+            android:id="@+id/boton_aceptar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/blue_face"
             android:text="@string/Aceptar" />
     </LinearLayout>
 </ScrollView>
