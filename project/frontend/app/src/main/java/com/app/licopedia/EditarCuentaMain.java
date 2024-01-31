@@ -3,10 +3,13 @@ package com.app.licopedia;
 import static com.app.licopedia.R.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,19 +23,28 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Queue;
-
-public class MainActivity extends AppCompatActivity {
+public class EditarCuentaMain extends Fragment {
     private Button buttonAcept;
-    private Context context=this;
+    private Context context;
     private RequestQueue requestQueue;
     private EditText Email, User, Name,Surname, Password,RepeatPassword;
-    
+
+    public void onAttach(Context newContext){
+        super.onAttach(newContext);
+        this.context = newContext;
+    }
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(layout.activity_main);
-        buttonAcept = findViewById(R.id.boton_aceptar);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(layout.activity_main, container, false);
+        Email = view.findViewById(id.casilla_rellenarEmail);
+        User = view.findViewById(id.casilla_usuario);
+        Name = view.findViewById(id.casilla_nombre);
+        Surname = view.findViewById(id.casilla_apellido);
+        Password = view.findViewById(id.casilla_contraseña);
+        RepeatPassword = view.findViewById(id.casilla_repetirContra);
+
+        buttonAcept = view.findViewById(id.boton_aceptar);
+
         buttonAcept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 EditUser();
             }
         });
-
+        return view;
     }
+
     private  void  EditUser() {
         JSONObject jsonObject = new JSONObject();
         try {
@@ -64,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(context,"Usuario modificado correctamente.",Toast.LENGTH_SHORT).show();
-                        finish();
                     }
                 },
                 new Response.ErrorListener() {
@@ -82,5 +94,6 @@ public class MainActivity extends AppCompatActivity {
         );
         this.requestQueue.add(jsonObjectRequest);
     }
+
 
 }
