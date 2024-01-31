@@ -1,6 +1,7 @@
 package com.app.licopedia;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -13,6 +14,8 @@ public class CoctelHolder extends RecyclerView.ViewHolder {
     private  Coctel coctel;
     private ImageView image;
     private TextView name ;
+    private Context context;
+
 
     public CoctelHolder(@NonNull View itemView) {
         super(itemView);
@@ -20,12 +23,13 @@ public class CoctelHolder extends RecyclerView.ViewHolder {
         name = (TextView) itemView.findViewById(R.id.nameCoctel);
 
     }
-
-    public  void  showCoctel (Coctel coctel, Activity activity){
+    public  void  showCoctel (Coctel coctel, Context context){
         this.name.setText(coctel.getName());
         Glide.with(itemView.getContext())
                 .load(coctel.getImage())
                 .into(image);
-                this.coctel= coctel;
+        this.coctel= coctel;
     }
+
+
 }

@@ -12,18 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
-import org.json.JSONObject;
 
 import java.util.List;
 
-public class MainActivity extends Fragment {
+public class LicoresGuardadosMain extends Fragment {
     private List<Coctel> coctel;
     private CoctelList coctelList;
     private RecyclerView recyclerView;
@@ -40,39 +34,27 @@ public class MainActivity extends Fragment {
     }
 
     @Override
-    public void onAttach(Context newContext){
+    public void onAttach(Context newContext) {
         super.onAttach(newContext);
         this.context = newContext;
     }
 
-    public CoctelList getCoctelList(){
-        return  coctelList;
+    public CoctelList getCoctelList() {
+        return coctelList;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_main, container, false);
-        queue= Volley.newRequestQueue(context);
-
-        JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.GET,
-                Server.name + "/conctelsGuardados",
-                null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }
-        );
-        queue.add(request);
-
+        queue = Volley.newRequestQueue(context);
         return view;
+
     }
+    public void ShowData(){
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        coctelAdapter= new CoctelAdapter(coctel,getContext());
+        recyclerView.setAdapter(coctelAdapter);
+    }
+
 }

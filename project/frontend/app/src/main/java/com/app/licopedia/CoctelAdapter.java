@@ -1,6 +1,7 @@
 package com.app.licopedia;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +14,11 @@ import java.util.List;
 
 public class CoctelAdapter extends RecyclerView.Adapter<CoctelHolder> {
     private List<Coctel> allCoctel;
-    private Activity activity;
+    private Context context;
 
-    public CoctelAdapter(List<Coctel> allCoctel, Activity activity) {
+    public CoctelAdapter(List<Coctel> allCoctel, Context context) {
         this.allCoctel = allCoctel;
-        this.activity = activity;
+        this.context = context;
     }
 
     @NonNull
@@ -32,7 +33,7 @@ public class CoctelAdapter extends RecyclerView.Adapter<CoctelHolder> {
     @Override
     public void onBindViewHolder(@NonNull CoctelHolder holder, int position) {
     Coctel dataForThisCell = allCoctel.get(position);
-    holder.showCoctel(dataForThisCell,activity);
+    holder.showCoctel(dataForThisCell,context);
     }
 
     @Override
