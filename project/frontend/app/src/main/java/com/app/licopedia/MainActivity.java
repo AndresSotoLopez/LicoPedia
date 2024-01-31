@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         buttonAcept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"Se han cambiado correctamente los cambios.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"Se han guardado correctamente los cambios.",Toast.LENGTH_SHORT).show();
                 EditUser();
             }
         });
