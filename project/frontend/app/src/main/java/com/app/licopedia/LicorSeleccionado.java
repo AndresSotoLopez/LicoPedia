@@ -10,13 +10,18 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LicorSeleccionado extends Fragment {
     private Context context;
     private TextView licorLink;
     private ImageView licorImage;
     private RecyclerView recyclerView;
+    private  Fragment fragment;
 
    /** @onAttach Vincula a la actividad que lo contiene**/
     public void onAttach(Context newContext){
@@ -33,7 +38,12 @@ public class LicorSeleccionado extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_licor_seleccionado, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
-        //noo se que mas 
+        recyclerView.setHasFixedSize(true);
+        List<Licor> data  = new ArrayList<>();
+        data.add(new Licor("sfasdfaf"));
+        LicorAdapter myAdapter = new LicorAdapter(data,fragment);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setAdapter(myAdapter);
         return  view;
     }
 }
