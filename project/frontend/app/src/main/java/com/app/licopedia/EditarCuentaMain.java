@@ -45,16 +45,17 @@ public class EditarCuentaMain extends Fragment {
 
         buttonAcept = view.findViewById(id.boton_aceptar);
 
+        /****/
         buttonAcept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context,"Se han guardado correctamente los cambios.",Toast.LENGTH_SHORT).show();
-                EditUser();
+               // EditUser();
             }
         });
         return view;
     }
-
+/**
     private  void  EditUser() {
         JSONObject jsonObject = new JSONObject();
         try {
@@ -94,6 +95,6 @@ public class EditarCuentaMain extends Fragment {
         );
         this.requestQueue.add(jsonObjectRequest);
     }
-
+*/
 
 }
