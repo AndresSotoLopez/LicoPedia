@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Licopedia</string>
-    <string name="pref_dark_mode_key">dark_mode_preference</string>
+    <string name="pref_dark_mode_key">false</string>
 </resources>
