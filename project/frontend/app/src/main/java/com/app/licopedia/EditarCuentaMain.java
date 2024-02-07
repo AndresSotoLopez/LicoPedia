@@ -2,7 +2,6 @@ package com.app.licopedia;
 
 import static com.app.licopedia.R.*;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
@@ -14,14 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class EditarCuentaMain extends Fragment {
     private Button buttonAcept;
@@ -35,7 +27,7 @@ public class EditarCuentaMain extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(layout.activity_main, container, false);
+        View view = inflater.inflate(layout.editar_cuenta_main, container, false);
         Email = view.findViewById(id.casilla_rellenarEmail);
         User = view.findViewById(id.casilla_usuario);
         Name = view.findViewById(id.casilla_nombre);
