@@ -2,6 +2,7 @@ package com.app.licopedia;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,14 @@ public class CoctelAdapter extends RecyclerView.Adapter<CoctelHolder> {
     public void onBindViewHolder(@NonNull CoctelHolder holder, int position) {
     Coctel dataForThisCell = allCoctel.get(position);
     holder.showCoctel(dataForThisCell,context);
+    /**Al clicar en cualquier celda me lleva a la actividad de preparación**/
+    holder.itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          /*  Intent intent =  new Intent(context, Preparacion.class);
+            context.startActivity(intent);*/
+        }
+    });
     }
 
     @Override

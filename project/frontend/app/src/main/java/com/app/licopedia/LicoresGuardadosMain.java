@@ -1,20 +1,14 @@
 package com.app.licopedia;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,15 +41,14 @@ public class LicoresGuardadosMain extends AppCompatActivity {
         recyclerView = findViewById(R.id.reciclerId);
 
         List<Coctel> coctel = new ArrayList<>();
-        coctel.add(new Coctel(R.drawable.coctel, "Cosmopolitan0"));
-        coctel.add(new Coctel(R.drawable.coctel, "Cosmopolitan1"));
-        coctel.add(new Coctel(R.drawable.coctel, "Cosmopolitan2"));
-        coctel.add(new Coctel(R.drawable.coctel, "Cosmopolitan3"));
-        coctel.add(new Coctel(R.drawable.coctel, "Cosmopolitan4"));
-        coctel.add(new Coctel(R.drawable.coctel, "Cosmopolitan5"));
-        coctel.add(new Coctel(R.drawable.coctel, "Cosmopolitan6"));
-        coctel.add(new Coctel(R.drawable.coctel, "Cosmopolitan7"));
-        coctel.add(new Coctel(R.drawable.coctel, "Cosmopolitan8"));
+        coctel.add(new Coctel(R.drawable.cosmopolitan, "Cosmopolitan"));
+        coctel.add(new Coctel(R.drawable.aguadevalencia, "Agua de Valencia"));
+        coctel.add(new Coctel(R.drawable.bloodymery, "Bloody Mary"));
+        coctel.add(new Coctel(R.drawable.margarita, "Margarita"));
+        coctel.add(new Coctel(R.drawable.mojito, "Mojito"));
+        coctel.add(new Coctel(R.drawable.rebujito, "Rebujito"));
+        coctel.add(new Coctel(R.drawable.sexonthebeach, "Sex on the beach"));
+
 
         coctelAdapter = new CoctelAdapter(coctel, this);
         recyclerView.setAdapter(coctelAdapter);
