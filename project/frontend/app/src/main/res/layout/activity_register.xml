@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_vertical"
     tools:context=".Register">
 
     <ImageView
         android:id="@+id/ImageLogo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,11 +19,24 @@
         android:src="@drawable/logo"
         />
 
+    <TextView
+        android:id="@+id/textLicopedia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="LicoPedia"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ImageLogo"/>
+
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="70dp"
         android:fontFamily="@font/lato"
         android:hint="Nombre"
         android:inputType="textPersonName"
@@ -85,6 +99,7 @@
         android:fontFamily="@font/lato"
         android:layout_marginTop="5dp"
         android:text="@string/mostrar_contraseña"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.281"
@@ -95,10 +110,11 @@
         style="?android:attr/buttonBarButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/lato"
         android:text="Registrar"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MostrarContraseña"
