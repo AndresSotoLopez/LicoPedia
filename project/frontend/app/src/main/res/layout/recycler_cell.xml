@@ -6,7 +6,9 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
-    android:animateLayoutChanges="true">
+    android:animateLayoutChanges="true"
+    app:cardBackgroundColor="@color/low_orange"
+    >
 
    <RelativeLayout
     android:layout_width="match_parent"
@@ -32,14 +34,12 @@
            android:layout_toRightOf="@id/imageCoctel"
            android:text="Cosmopolitan"
            android:textStyle="bold"
-           android:textSize="16sp"
+           android:textColor="@color/black"
+           android:textSize="25dp"
            android:gravity="center"/>
 
 
 
    </RelativeLayout>
-
-
-
 
 </androidx.cardview.widget.CardView>

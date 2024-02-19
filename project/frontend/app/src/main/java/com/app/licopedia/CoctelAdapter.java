@@ -39,7 +39,7 @@ public class CoctelAdapter extends RecyclerView.Adapter<CoctelHolder> {
     holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-          /*  Intent intent =  new Intent(context, Preparacion.class);
+          /*  Intent intent =  new Intent(context. pantalla_preparacion.class);
             context.startActivity(intent);*/
         }
     });

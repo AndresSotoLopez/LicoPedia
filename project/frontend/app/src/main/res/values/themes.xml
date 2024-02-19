@@ -1,8 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Licopedia" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Licopedia" parent="Theme.Material3.Dark">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/orange</item>
+        <item name="colorSecondary">@color/low_orange</item>
     </style>
 
     <style name="Theme.Licopedia" parent="Base.Theme.Licopedia" />

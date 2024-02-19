@@ -1,5 +1,6 @@
 package com.app.licopedia;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,14 +41,22 @@ public class LicoresGuardadosMain extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.reciclerId);
 
+
+
+         /**  * @param actionBar es para la flecha del retun**/
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null)
+            actionBar.setDisplayHomeAsUpEnabled(true);
+
+
         List<Coctel> coctel = new ArrayList<>();
         coctel.add(new Coctel(R.drawable.cosmopolitan, "Cosmopolitan"));
-        coctel.add(new Coctel(R.drawable.aguadevalencia, "Agua de Valencia"));
-        coctel.add(new Coctel(R.drawable.bloodymery, "Bloody Mary"));
+        coctel.add(new Coctel(R.drawable.agua_de_valencia, "Agua de Valencia"));
+        coctel.add(new Coctel(R.drawable.bloody_mary, "Bloody Mary"));
         coctel.add(new Coctel(R.drawable.margarita, "Margarita"));
         coctel.add(new Coctel(R.drawable.mojito, "Mojito"));
         coctel.add(new Coctel(R.drawable.rebujito, "Rebujito"));
-        coctel.add(new Coctel(R.drawable.sexonthebeach, "Sex on the beach"));
+        coctel.add(new Coctel(R.drawable.sex_on_the_beach, "Sex on the beach"));
 
 
         coctelAdapter = new CoctelAdapter(coctel, this);
