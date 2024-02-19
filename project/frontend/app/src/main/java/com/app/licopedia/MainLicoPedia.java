@@ -44,9 +44,6 @@ public class MainLicoPedia extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         recyclerView = findViewById(R.id.recycler_recomendaciones);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(main_context, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-
         // Realiza una solicitud JSON usando Volley para obtener datos del catálogo
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
@@ -56,24 +53,26 @@ public class MainLicoPedia extends AppCompatActivity {
                     // Callback para manejar la respuesta exitosa
                     @Override
                     public void onResponse(JSONArray response) {
-                        try {
-                            // Lista para almacenar objetos LicoData
-                            List<LicoData> allLicores = new ArrayList<>();
+                        // Lista para almacenar objetos LicoData
+                        List<LicoData> allLicores = new ArrayList<>();
 
-                            // Itera sobre el JSONArray para crear objetos LicoData
-                            for (int i = 0; i < response.length(); i++){
+                        // Itera sobre el JSONArray para crear objetos LicoData
+                        for (int i = 0; i < response.length(); i++){
+                            try{
                                 JSONObject licores = response.getJSONObject(i);
                                 LicoData data = new LicoData(licores);
                                 allLicores.add(data);
+                            } catch (JSONException e){
+                                e.printStackTrace();
                             }
-
-                            // Configura el RecyclerView con el adaptador y el administrador de diseño
-                            adapter = new LicoAdapter(allLicores, activity, main_context);
-                            recyclerView.setAdapter(adapter);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
+
+                        // Configura el RecyclerView con el adaptador y el administrador de diseño
+                        adapter = new LicoAdapter(allLicores, activity, main_context);
+                        recyclerView.setAdapter(adapter);
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(main_context, LinearLayoutManager.HORIZONTAL, false);
+                        recyclerView.setLayoutManager(layoutManager);
+
                     }
                 }, new Response.ErrorListener() {
             // Callback para manejar errores en la respuesta
