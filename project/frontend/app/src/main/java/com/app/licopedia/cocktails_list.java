@@ -14,7 +14,7 @@ public class cocktails_list {
         return cocktails_list;
     }
 
-    public cocktails_list(JSONArray array) throws JSONException {
+    public cocktails_list(JSONArray array) {
         cocktails_list = new ArrayList<>();
 
         for (int i = 0; i < array.length(); i++) {

@@ -24,12 +24,11 @@ public class cocktail_view_holder  extends RecyclerView.ViewHolder{
             @Override
             public void onClick(View view) {
                 int cocktailsId = cocktails.getId();
-                String ImageUrl = cocktails.getImage();
+                Context context = view.getContext();
                 /*
                 Send the id and changes to the inforamtion of the dinosaur screen
                 Intent intent = new Intent(context, );
-                intent.putExtra(VideoActivity.INTENT_DINOSAUR_ID, id);
-                intent.putExtra(VideoActivity.INTENT_IMG_URL, ImageUrl);
+                intent.putExtra("id", cocktailsId);
                 context.startActivity(intent);
 
 
@@ -38,12 +37,15 @@ public class cocktail_view_holder  extends RecyclerView.ViewHolder{
         });
     }
     public void showData(cocktails dinosaur) {
-        this.textView.setText(dinosaur.getName());
-        Glide.with(itemView)
-                .load(cocktails.getImage())
-                .into(Image);
-
         this.cocktails = cocktails;
+        if (cocktails != null){
+            this.textView.setText(dinosaur.getName());
+            Glide.with(itemView)
+                    .load(cocktails.getImage())
+                    .into(Image);
+        } else {
+            this.textView.setText("Unknown");
+        }
     }
 
 }
