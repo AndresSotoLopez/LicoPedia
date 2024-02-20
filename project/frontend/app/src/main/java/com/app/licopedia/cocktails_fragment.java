@@ -32,6 +32,7 @@ public class cocktails_fragment extends Fragment {
     private RequestQueue requestQueue;
     private JsonArrayRequest request;
     private RecyclerView recyclerView;
+    private List<cocktails> cocktailList;
 
     public static cocktails_fragment newInstance(){
         return new cocktails_fragment();
@@ -44,13 +45,11 @@ public class cocktails_fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.activity_cocktails, container, false);
-
         String url_string = "https://raw.githubusercontent.com/DiegoCoira/DI/main/Sprint2ApiRest/catalog.json";
         ImageButton backButton = layout.findViewById(R.id.conf_button);
         ImageButton profileButton = layout.findViewById(R.id.profile_button);
         ImageButton searchButton = layout.findViewById(R.id.searchButton);
         EditText searchCocktailByName = layout.findViewById(R.id.searchCocktailByName);
-
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,82 +73,67 @@ public class cocktails_fragment extends Fragment {
 
         recyclerView = layout.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
-        List<cocktails> cocktails = new ArrayList<>();
-
+        showData(url_string);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cocktails.clear();
                 StringBuilder queryString = new StringBuilder();
                 String cocktail_name = searchCocktailByName.getText().toString().trim();
                 if (!cocktail_name.isEmpty()) {
-                    queryString.append("name=").append(cocktail_name);
+                    queryString.append("?name=").append(cocktail_name);
                 }
                 String fullUrl = url_string + queryString;
-                JsonArrayRequest request = new JsonArrayRequest(
-                        Request.Method.GET,
-                        fullUrl,
-                        null,
-                        new Response.Listener<JSONArray>() {
-                            @Override
-                            public void onResponse(JSONArray response) {
-                                cocktails_list dinosaurList = new cocktails_list(response); // Instantiate DinosaurList with the JSONArray response
-
-                                cocktail_adapter myAdapter = new cocktail_adapter(dinosaurList); // Pass the list from DinosaurList to the adapter
-                                recyclerView.setAdapter(myAdapter);
-                                recyclerView.setLayoutManager(new LinearLayoutManager(context)); // Use 'context' instead of 'this'
-
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        if (error.networkResponse == null) {
-                            Toast.makeText(context, "Connection could not be established", Toast.LENGTH_LONG).show();
-                        } else {
-                            int serverCode = error.networkResponse.statusCode;
-                            Toast.makeText(context, "Server error: " + serverCode, Toast.LENGTH_LONG).show();
-                        }
-                    }
+                if (cocktailList != null){
+                    cocktailList.clear();
                 }
-                );
-
-                requestQueue.add(request);
+                showData(fullUrl);
                 Toast.makeText(context, "Search Done", Toast.LENGTH_LONG).show();
             }
 
         });
-        String cocktail_name = searchCocktailByName.getText().toString().trim();
-        if (cocktail_name.isEmpty()) {
-            JsonArrayRequest request = new JsonArrayRequest(
-                    Request.Method.GET,
-                    url_string,
-                    null,
-                    new Response.Listener<JSONArray>() {
-                        @Override
-                        public void onResponse(JSONArray response) {
-                            cocktails_list dinosaurList = new cocktails_list(response); // Instantiate DinosaurList with the JSONArray response
+        return layout;
+    }
+    private void showData(String fullUrl) {
 
-                            cocktail_adapter myAdapter = new cocktail_adapter(dinosaurList); // Pass the list from DinosaurList to the adapter
+        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
+        if (cocktailList != null){
+            cocktailList.clear();
+        }
+        JsonArrayRequest request = new JsonArrayRequest(
+                Request.Method.GET,
+                fullUrl,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        if (response == null || response.length() == 0) {
+                            cocktailList.add(new cocktails("Not Found", "https://example.com/not_found.jpg"));
+                            cocktails_list cocktailsList = new cocktails_list(new JSONArray(cocktailList));
+                            cocktail_adapter myAdapter = new cocktail_adapter(cocktailsList); // Pass the list from DinosaurList to the adapter
                             recyclerView.setAdapter(myAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(context)); // Use 'context' instead of 'this'
-
+                        } else {
+                            cocktails_list cocktails_list = new cocktails_list(response); // Instantiate DinosaurList with the JSONArray response
+                            cocktail_adapter myAdapter = new cocktail_adapter(cocktails_list); // Pass the list from DinosaurList to the adapter
+                            recyclerView.setAdapter(myAdapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(context)); // Use 'context' instead of 'this'
                         }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    if (error.networkResponse == null) {
-                        Toast.makeText(context, "Connection could not be established", Toast.LENGTH_LONG).show();
-                    } else {
-                        int serverCode = error.networkResponse.statusCode;
-                        Toast.makeText(context, "Server error: " + serverCode, Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Error de la solicitud
+                        if (error.networkResponse == null) {
+                            Toast.makeText(context, "No se pudo establecer la conexión", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(context, "Error del servidor: " + error.networkResponse.statusCode, Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
-            }
-            );
+        );
 
-            requestQueue.add(request);
-        }
-        return layout;
+        // Agregar la solicitud a la cola
+        requestQueue.add(request);
     }
 }
