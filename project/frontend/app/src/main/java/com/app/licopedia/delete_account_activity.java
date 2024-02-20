@@ -21,7 +21,15 @@ public class delete_account_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(delete_account_activity.this, "Cuenta eliminada con éxito", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(delete_account_activity.this, MainActivity.class);
+                Intent intent = new Intent(delete_account_activity.this, sign_in.class);
+                startActivity(intent);
+            }
+        });
+
+        yes_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(delete_account_activity.this, MainLicoPedia.class);
                 startActivity(intent);
             }
         });
