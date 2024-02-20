@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/item1"
+        android:id="@+id/nav_item1"
         android:title="Inicio"
         android:icon="@drawable/inicio" />
     <item
-        android:id="@+id/item2"
+        android:id="@+id/nav_item2"
         android:title="Licores"
         android:icon="@drawable/licores"/>
     <item
-        android:id="@+id/item3"
+        android:id="@+id/nav_item3"
         android:title="Búsqueda"
         android:icon="@drawable/lupa"/>
     <item
-        android:id="@+id/item4"
+        android:id="@+id/nav_item4"
         android:title="Guardados"
         android:icon="@drawable/guardado"/>
     <item
-        android:id="@+id/item5"
+        android:id="@+id/nav_item5"
         android:title="Mapa"
         android:icon="@drawable/mapa"/>
 </menu>
