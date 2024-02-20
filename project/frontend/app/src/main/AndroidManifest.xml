@@ -14,12 +14,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Licopedia"
         tools:targetApi="31">
+
         <activity
+            android:name=".sign_in"
+            android:exported="false" />
+
+        <activity
+            android:name=".MainLicoPedia"
+            android:exported="false" />
+
+        <activity
+            android:name=".LicoresGuardadosMain"
+            android:exported="false" />
+      <activity
             android:name=".EditarCuenta"
+            android:exported="false" />
+        <activity
+            android:name=".delete_account_activity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Splash_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
