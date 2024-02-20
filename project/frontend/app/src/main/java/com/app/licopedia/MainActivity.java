@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenido del contenedor con el fragmento cocktails_activity
-        Fragment cocktailsFragment = new cocktails_activity(); // Instancia tu fragmento
+        Fragment cocktailsFragment = new cocktails_fragment(); // Instancia tu fragmento
         fragmentTransaction.replace(R.id.fragment_container, cocktailsFragment);
 
         // Añade la transacción a la pila de retroceso (back stack)
