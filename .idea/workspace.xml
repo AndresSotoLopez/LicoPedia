@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="958bc37d-1d10-4d86-9dbc-ae1dfb7124dc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="590e35a8-ba89-4161-b894-5dd2e5084beb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/project/frontend/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/frontend/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/frontend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/frontend/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +25,10 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2buRmCSyYD4yjUxCA5SCSyRrs9H" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2baD93WdkxdzqIHU3vwPkIc6y28" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,6 +51,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707063134179</updated>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maril/Desktop/LicoPedia/project/frontend&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="590e35a8-ba89-4161-b894-5dd2e5084beb" name="Changes" comment="" />
+      <created>1706444148119</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706444148119</updated>
     </task>
     <servers />
   </component>
