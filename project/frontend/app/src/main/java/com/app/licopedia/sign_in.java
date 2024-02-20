@@ -42,7 +42,7 @@ public class sign_in extends AppCompatActivity {
                     
                     if ((task.isSuccessful())){
                         
-                        startActivity(new Intent(com.app.licopedia.sign_in.this, mainActivity.class));
+                        startActivity(new Intent(com.app.licopedia.sign_in.this, MainLicoPedia.class));
                         finish();
                         
                     }
@@ -58,7 +58,7 @@ public class sign_in extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 
-                startActivity(new Intent(sign_in.this, register.class));
+                //startActivity(new Intent(sign_in.this, register.class));
                 
             }
         });

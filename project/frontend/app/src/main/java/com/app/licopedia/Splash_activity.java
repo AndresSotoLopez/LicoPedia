@@ -21,8 +21,8 @@ public class Splash_activity extends AppCompatActivity {
             public void run() {
                 // Crear un Intent para iniciar la actividad principal
 
-               // Intent intent = new Intent(Splash_activity.this, MainActivity.class);
-               // startActivity(intent);
+               Intent intent = new Intent(Splash_activity.this, MainLicoPedia.class);
+               startActivity(intent);
 
                 // Cerrar la actividad de bienvenida para que no pueda volver atrás
                 finish();
