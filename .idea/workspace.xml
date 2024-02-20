@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="AndroidLayouts">
     <shared>
       <config />
@@ -12,10 +13,13 @@
       </layout>
     </layouts>
   </component>
+=======
+>>>>>>> master
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="3684edbc-e618-4e3b-92c8-772e9e827393" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/project/frontend/app/src/main/java/com/app/licopedia/maps_activity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/project/frontend/app/src/main/res/layout/activity_maps.xml" afterDir="false" />
@@ -26,12 +30,18 @@
       <change beforePath="$PROJECT_DIR$/project/frontend/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/frontend/app/src/main/res/layout/activity_map.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/frontend/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/frontend/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/frontend/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/project/frontend/build.gradle.kts" afterDir="false" />
+=======
+    <list default="true" id="590e35a8-ba89-4161-b894-5dd2e5084beb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/project/frontend/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/frontend/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/frontend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/frontend/.idea/misc.xml" afterDir="false" />
+>>>>>>> master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
@@ -86,12 +96,19 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2bxnWOSM3zVn98nFBHW4KGD5B2H" />
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2baD93WdkxdzqIHU3vwPkIc6y28" />
+>>>>>>> master
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+<<<<<<< HEAD
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
@@ -193,6 +210,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707165628272</updated>
+=======
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maril/Desktop/LicoPedia/project/frontend&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="590e35a8-ba89-4161-b894-5dd2e5084beb" name="Changes" comment="" />
+      <created>1706444148119</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706444148119</updated>
+>>>>>>> master
     </task>
     <servers />
   </component>

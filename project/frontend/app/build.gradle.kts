@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+
+
 }
 
 android {
@@ -37,7 +39,14 @@ android {
 
 dependencies {
 
+
     implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-database:20.0.0")
+    implementation ("com.github.bumptech.glide:glide:4.13.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation("com.android.volley:volley:1.2.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
