@@ -53,7 +53,7 @@ public class cocktails_fragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(Favourites.this, MainDodoDex.class);
+                //Intent intent = new Intent(cocktails_fragment.this, MainLicoPedia.class);
                 //intent.putExtra("user-token", user_token);
                 //startActivity(intent);
             }
@@ -63,7 +63,7 @@ public class cocktails_fragment extends Fragment {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(Favourites.this, datos_personales.class);
+                //Intent intent = new Intent(cocktails_fragment.this, datos_personales.class);
                 //intent.putExtra("user-token", user_token);
                 //startActivity(intent);
             }
