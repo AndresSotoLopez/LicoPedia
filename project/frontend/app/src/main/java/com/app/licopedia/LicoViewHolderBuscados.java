@@ -1,27 +1,27 @@
 package com.app.licopedia;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 
-public class LicoViewHolder extends RecyclerView.ViewHolder {
+public class LicoViewHolderBuscados extends RecyclerView.ViewHolder {
     private LicoData licoData;
     private TextView licoName;
     private ImageView licoImage;
-    public LicoViewHolder(@NonNull View itemView) {
+    public LicoViewHolderBuscados(@NonNull View itemView) {
         super(itemView);
-        licoImage = (ImageView) itemView.findViewById(R.id.image_view_holder);
-        licoName = (TextView) itemView.findViewById(R.id.text_view_holder);
+        licoImage = itemView.findViewById(R.id.image_view_holder);
+        licoName = itemView.findViewById(R.id.text_view_holder);
     }
 
-    public void bindDino(LicoData licoData, Activity activity) {
-        licoName.setText(licoData.getName());
+    public void bindLicores(LicoData licoData, Activity activity) {
+        this.licoName.setText(licoData.getName());
 
         // Cargar la imagen con Glide
         Glide.with(itemView)

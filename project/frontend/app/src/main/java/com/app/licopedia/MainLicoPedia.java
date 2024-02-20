@@ -29,25 +29,25 @@ import java.util.List;
 
 
 public class MainLicoPedia extends AppCompatActivity {
-    private RecyclerView recyclerView;
     private Context main_context = this;
-    private LicoAdapter adapter;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private Activity activity = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_licopedia);
+        Activity activity = this;
 
         drawerLayout = findViewById(R.id.drawerLayout);
-        recyclerView = findViewById(R.id.recycler_recomendaciones);
+        RecyclerView recyclerViewRecom = findViewById(R.id.recycler_recomendaciones);
+        RecyclerView recyclerViewTen = findViewById(R.id.recycler_tendencias);
+        RecyclerView recyclerViewBus = findViewById(R.id.recycler_buscados);
 
         // Realiza una solicitud JSON usando Volley para obtener datos del catálogo
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
-                "https://raw.githubusercontent.com/AndresSotoLopez/LicoPedia/master/project/recursos/catalog1.json",
+                "https://raw.githubusercontent.com/RubenPallin/sprint1apache/main/recursos/catalog1.json",
                 null,
                 new Response.Listener<JSONArray>() {
                     // Callback para manejar la respuesta exitosa
@@ -68,11 +68,87 @@ public class MainLicoPedia extends AppCompatActivity {
                         }
 
                         // Configura el RecyclerView con el adaptador y el administrador de diseño
-                        adapter = new LicoAdapter(allLicores, activity, main_context);
-                        recyclerView.setAdapter(adapter);
-                        LinearLayoutManager layoutManager = new LinearLayoutManager(main_context, LinearLayoutManager.HORIZONTAL, false);
-                        recyclerView.setLayoutManager(layoutManager);
+                        LicoAdapter licoAdapter = new LicoAdapter(allLicores, activity, MainLicoPedia.this);
+                        recyclerViewRecom.setAdapter(licoAdapter);
+                        recyclerViewRecom.setLayoutManager(new LinearLayoutManager(activity));
+                        LinearLayoutManager layoutManagerRecom = new LinearLayoutManager(main_context, LinearLayoutManager.HORIZONTAL, false);
+                        recyclerViewRecom.setLayoutManager(layoutManagerRecom);
+                    }
+                }, new Response.ErrorListener() {
+            // Callback para manejar errores en la respuesta
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Muestra un Toast con el mensaje de error
+                Toast.makeText(activity, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        //Petición para el recyclerView de Tendencias
+        JsonArrayRequest requestTendencias = new JsonArrayRequest(
+                Request.Method.GET,
+                "https://raw.githubusercontent.com/RubenPallin/sprint1apache/main/recursos/catalog2.json",
+                null,
+                new Response.Listener<JSONArray>() {
+                    // Callback para manejar la respuesta exitosa
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        // Lista para almacenar objetos LicoData
+                        List<LicoData> allLicores = new ArrayList<>();
+
+                        // Itera sobre el JSONArray para crear objetos LicoData
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject licores = response.getJSONObject(i);
+                                LicoData data = new LicoData(licores);
+                                allLicores.add(data);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        // Configura el RecyclerView con el adaptador y el administrador de diseño
+                        LicoAdapterTendencias licoAdapterTen = new LicoAdapterTendencias(allLicores, activity, MainLicoPedia.this);
+                        recyclerViewTen.setAdapter(licoAdapterTen);
+                        LinearLayoutManager layoutManagerTen = new LinearLayoutManager(main_context, LinearLayoutManager.HORIZONTAL, false);
+                        recyclerViewTen.setLayoutManager(layoutManagerTen);
+                    }
+                }, new Response.ErrorListener() {
+            // Callback para manejar errores en la respuesta
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Muestra un Toast con el mensaje de error
+                Toast.makeText(activity, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Petición del recyclerView de Buscados
+        JsonArrayRequest requestBuscados = new JsonArrayRequest(
+                Request.Method.GET,
+                "https://raw.githubusercontent.com/RubenPallin/sprint1apache/main/recursos/catalog2.json",
+                null,
+                new Response.Listener<JSONArray>() {
+                    // Callback para manejar la respuesta exitosa
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        // Lista para almacenar objetos LicoData
+                        List<LicoData> allLicores = new ArrayList<>();
+
+                        // Itera sobre el JSONArray para crear objetos LicoData
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject licores = response.getJSONObject(i);
+                                LicoData data = new LicoData(licores);
+                                allLicores.add(data);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        // Configura el RecyclerView con el adaptador y el administrador de diseño
+                        LicoAdapterBuscados licoAdapterBuscados = new LicoAdapterBuscados(allLicores, activity, MainLicoPedia.this);
+                        recyclerViewBus.setAdapter(licoAdapterBuscados);
+                        LinearLayoutManager layoutManagerBus = new LinearLayoutManager(main_context, LinearLayoutManager.HORIZONTAL, false);
+                        recyclerViewBus.setLayoutManager(layoutManagerBus);
                     }
                 }, new Response.ErrorListener() {
             // Callback para manejar errores en la respuesta
@@ -85,7 +161,13 @@ public class MainLicoPedia extends AppCompatActivity {
 
         // Cola de solicitudes Volley
         RequestQueue cola = Volley.newRequestQueue(this);
-        // Agrega la solicitud a la cola
+        // Primera solicitud a la cola
         cola.add(request);
+        // Segunda solicitud a la cola
+        cola.add(requestTendencias);
+        // Tercera solicitud a la cola
+        cola.add(requestBuscados);
+
     }
 }
+

@@ -18,14 +18,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="6dp">
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/image_view_holder"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_centerHorizontal="true"
-                android:src="@color/white" />
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/text_view_holder"
@@ -35,7 +34,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:text="Title"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
         </RelativeLayout>
 

@@ -10,7 +10,7 @@ public class LicoData {
 
     public LicoData(JSONObject json) throws JSONException {
         this.name = json.getString("name");
-        this.imageURL = json.getString("image");
+        this.imageURL = json.getString("image_url");
     }
 
     public String getName() { return name; }
