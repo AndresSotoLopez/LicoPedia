@@ -1,14 +1,17 @@
 package com.app.licopedia;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -66,38 +69,35 @@ public class MainLicoPedia extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
 
         // Configurar el NavigationItemSelectedListener
-      /*  navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 // Manejar los clics en los elementos del menú
-                switch (item.getItemId()) {
-                    case R.id.nav_item1:
-                        // Navegar a la Activity correspondiente para el elemento 1
-                        startActivity(new Intent(MainLicoPedia.this, MainLicoPedia.class));
-                        break;
-                    case R.id.nav_item2:
-                        // Navegar a la Activity correspondiente para el elemento 2
-                        startActivity(new Intent(MainLicoPedia.this, ActivityItem2.class));
-                        break;
-                    case R.id.nav_item3:
-                        // Navegar a la Activity correspondiente para el elemento 3
-                        startActivity(new Intent(MainLicoPedia.this, cocktails_activity.class));
-                        break;
-                    case R.id.nav_item4:
-                        // Navegar a la Activity correspondiente para el elemento 4
-                        startActivity(new Intent(MainLicoPedia.this, Cocteles_Guardados.class));
-                        break;
-                    case R.id.nav_item5:
-                        // Navegar a la Activity correspondiente para el elemento 5
-                        startActivity(new Intent(MainLicoPedia.this, maps_activity.class));
-                        break;
+                int itemId = item.getItemId();
+                
+                if (itemId == R.id.nav_item1) {
+                    // Navegar a la Activity correspondiente para el elemento 1
+                    //startActivity(new Intent(MainLicoPedia.this, MainLicoPedia.class));
+                } else if (itemId == R.id.nav_item2) {
+                    // Navegar a la Activity correspondiente para el elemento 2
+                    //startActivity(new Intent(MainLicoPedia.this, ActivityItem2.class));
+                } else if (itemId == R.id.nav_item3) {
+                    // Navegar a la Activity correspondiente para el elemento 3
+                    //startActivity(new Intent(MainLicoPedia.this, cocktails_activity.class));
+                } else if (itemId == R.id.nav_item4) {
+                    // Navegar a la Activity correspondiente para el elemento 4
+                    startActivity(new Intent(MainLicoPedia.this, LicoresGuardadosMain.class));
+                } else if (itemId == R.id.nav_item5) {
+                    // Navegar a la Activity correspondiente para el elemento 5
+                    //startActivity(new Intent(MainLicoPedia.this, maps_activity.class));
                 }
-
+                
+                
                 // Cerrar el cajón de navegación después de manejar el clic en un elemento
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
-        });*/
+        });
 
         // Realiza una solicitud JSON usando Volley para obtener datos del catálogo
         JsonArrayRequest request = new JsonArrayRequest(
