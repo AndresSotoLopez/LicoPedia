@@ -1,12 +1,11 @@
 package com.app.licopedia;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,15 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.TotpSecret;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Register extends AppCompatActivity {
@@ -33,12 +29,14 @@ public class Register extends AppCompatActivity {
     private ImageView imagen;
     private TextView mostrarContraseña;
     private Boolean hide = true;
-    private RequestQueue queue;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        mAuth = FirebaseAuth.getInstance();
 
         imagen = findViewById(R.id.ImageLogo);
         editTextEmail = findViewById(R.id.editTextEmail);
@@ -47,6 +45,8 @@ public class Register extends AppCompatActivity {
         editTextSurnames = findViewById(R.id.editTextSurnames);
         mostrarContraseña = findViewById(R.id.MostrarContraseña);
         buttonRegister = findViewById(R.id.ButtonRegister);
+
+        buttonRegister.setOnClickListener(v -> registrarUsuario());
 
         mostrarContraseña.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,77 +61,59 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (!editTextPassword.getText().toString().equals(editTextPassword.getText().toString())) {
-                    editTextPassword.setError("Contraseña diferente");
-                }
-                if (editTextPassword.length() == 0)
-                    editTextPassword.setError("Falta Contraseña");
-
-                if (editTextName.length() == 0)
-                    editTextName.setError("Falta Nombre");
-
-                if (editTextSurnames.length() == 0)
-                    editTextSurnames.setError("Falta Apellidos");
-
-                if (editTextEmail.length() == 0)
-                    editTextEmail.setError("Falta Email");
-
-                else {
-                    register(editTextName, editTextSurnames, editTextEmail, editTextPassword);
-                }
-            }
-        });
-
     }
-    private void register(EditText editTextName, EditText editTextSurnames, EditText
-            editTextEmail, EditText editTextPassword){
-        queue = Volley.newRequestQueue(context);
-        JSONObject requestBody = new JSONObject();
-        try {
+    private void registrarUsuario(){
+        String nombre = editTextName.getText().toString().trim();
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
 
-            requestBody.put("name", editTextName.getText().toString());
-            requestBody.put("surnames", editTextSurnames.getText().toString());
-            requestBody.put("email", editTextEmail.getText().toString());
-            requestBody.put("password", editTextPassword.getText().toString());
-
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
+        if (TextUtils.isEmpty(nombre)){
+            editTextName.setError("Ingresa tu nombre");
+            return;
+        }
+        if (TextUtils.isEmpty(email)){
+            editTextEmail.setError("Ingresa tu correo electrónico");
+            return;
+        }
+        if (TextUtils.isEmpty(password) || password.length() < 6){
+            editTextPassword.setError("Ingresa una contraseña válida (mínimo 6 caracteres)");
+            return;
         }
 
-        JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.POST,
-                BASE_URL + "/register",
-                requestBody,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                        Toast.makeText(context, "Cuenta creada con éxito", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(context, .class);
-                        //context.startActivity(intent);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        if (error.networkResponse == null) {
-                            Toast.makeText(context, "Sin conexión", Toast.LENGTH_LONG).show();
-
-                        } else if (error.networkResponse.statusCode == 409) {
-                            Toast.makeText(context, "Cuenta ya registrada", Toast.LENGTH_SHORT).show();
-
-                        } else {
-                            int serverCode = error.networkResponse.statusCode;
-                            Toast.makeText(context, "Error: " + serverCode, Toast.LENGTH_LONG).show();
-
-                        }
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()){
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        //Guardar datos adicionales en Realtime Database
+                        Usuario nuevoUsuario = new Usuario(nombre, email);
+                        FirebaseDatabase.getInstance().getReference("usuarios")
+                                .child(user.getUid())
+                                .setValue(nuevoUsuario)
+                                .addOnCompleteListener(taskDb -> {
+                                   if (taskDb.isSuccessful()) {
+                                       Toast.makeText(Register.this, "Registro exitoso", Toast.LENGTH_LONG).show();
+                                       //startActivity(new Intent(Register.this, sign_in.class));
+                                       finish();
+                                   } else {
+                                       Toast.makeText(Register.this, "Error al guardar los datos: " + taskDb.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                   }
+                                });
+                    } else {
+                        Log.e("TagError", task.getException().getMessage());
+                        Toast.makeText(Register.this, "Registro fallido: " +
+                                task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-        this.queue.add(request);
+
+    }
+
+    static class Usuario {
+        public String nombre, correo;
+
+        public Usuario(String nombre, String correo){
+            this.nombre = nombre;
+            this.correo = correo;
+        }
     }
 }
 
