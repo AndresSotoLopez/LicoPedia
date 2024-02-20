@@ -19,29 +19,46 @@
         android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_contraintStar_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/licorImagen"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/jackd"
+        android:src="@drawable/jager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/licorName"
-/>
+        />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+    <TextView
+        android:id="@+id/licorLink1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/licorImagen"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
+        android:text="Licor Link1"
+        android:textSize="15dp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
+        app:layout_constraintTop_toBottomOf="@+id/licorImagen"
         />
+
+    <TextView
+        android:id="@+id/licorLink2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="Licor Link2"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/licorImagen"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
