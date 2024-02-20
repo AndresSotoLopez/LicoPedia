@@ -24,7 +24,6 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class cocktails_fragment extends Fragment {
@@ -45,7 +44,7 @@ public class cocktails_fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.activity_cocktails, container, false);
-        String url_string = "https://raw.githubusercontent.com/DiegoCoira/DI/main/Sprint2ApiRest/catalog.json";
+        String url_string = "https://raw.githubusercontent.com/AndresSotoLopez/LicoPedia/master/project/recursos/catalog2.json";
         ImageButton backButton = layout.findViewById(R.id.conf_button);
         ImageButton profileButton = layout.findViewById(R.id.profile_button);
         ImageButton searchButton = layout.findViewById(R.id.searchButton);
@@ -82,7 +81,8 @@ public class cocktails_fragment extends Fragment {
                 if (!cocktail_name.isEmpty()) {
                     queryString.append("?name=").append(cocktail_name);
                 }
-                String fullUrl = url_string + queryString;
+                // String fullUrl = url_string + queryString;
+                String fullUrl = "https://raw.githubusercontent.com/AndresSotoLopez/LicoPedia/master/project/recursos/catalog1.json";
                 if (cocktailList != null){
                     cocktailList.clear();
                 }
@@ -106,18 +106,18 @@ public class cocktails_fragment extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        boolean not_found= false;
                         if (response == null || response.length() == 0) {
                             cocktailList.add(new cocktails("Not Found", "https://example.com/not_found.jpg"));
-                            cocktails_list cocktailsList = new cocktails_list(new JSONArray(cocktailList));
-                            cocktail_adapter myAdapter = new cocktail_adapter(cocktailsList); // Pass the list from DinosaurList to the adapter
-                            recyclerView.setAdapter(myAdapter);
-                            recyclerView.setLayoutManager(new LinearLayoutManager(context)); // Use 'context' instead of 'this'
+                            not_found = true;
+
                         } else {
                             cocktails_list cocktails_list = new cocktails_list(response); // Instantiate DinosaurList with the JSONArray response
                             cocktail_adapter myAdapter = new cocktail_adapter(cocktails_list); // Pass the list from DinosaurList to the adapter
                             recyclerView.setAdapter(myAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(context)); // Use 'context' instead of 'this'
                         }
+                        updateRecyclerView(not_found, response);
                     }
                 },
                 new Response.ErrorListener() {
@@ -135,5 +135,16 @@ public class cocktails_fragment extends Fragment {
 
         // Agregar la solicitud a la cola
         requestQueue.add(request);
+    }
+    private void updateRecyclerView(boolean not_found, JSONArray response) {
+        cocktails_list cocktailsList;
+        if (not_found) {
+            cocktailsList = new cocktails_list(new JSONArray(cocktailList));
+        } else {
+            cocktailsList = new cocktails_list(response);
+        }
+        cocktail_adapter myAdapter = new cocktail_adapter(cocktailsList);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
     }
 }
