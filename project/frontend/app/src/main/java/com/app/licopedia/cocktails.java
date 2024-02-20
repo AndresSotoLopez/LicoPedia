@@ -5,12 +5,12 @@ import org.json.JSONObject;
 
 
 public class cocktails {
-    private int id;
+    private String description;
     private String name;
     private String image;
 
-    public int getId() {
-        return id;
+    public String getDescription() {
+        return description;
     }
 
     public String getName() {
@@ -22,9 +22,9 @@ public class cocktails {
     }
 
     public cocktails(JSONObject json) throws JSONException {
-        this.id = json.getInt("id");
+        this.description = json.getString("description");
         this.name = json.getString("name");
-        this.image = json.getString("image");
+        this.image = json.getString("image_url");
     }
 }
 

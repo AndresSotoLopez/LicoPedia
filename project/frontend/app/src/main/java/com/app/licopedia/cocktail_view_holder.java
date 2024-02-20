@@ -18,12 +18,12 @@ public class cocktail_view_holder  extends RecyclerView.ViewHolder{
     private ImageView Image;
     public cocktail_view_holder(@NonNull View itemView) {
         super(itemView);
-        textView = itemView.findViewById(R.id.text_view);
-        Image = itemView.findViewById(R.id.button_cocktail);
+        textView = itemView.findViewById(R.id.textRecyclerView);
+        Image = itemView.findViewById(R.id.img_dinosaur);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int cocktailsId = cocktails.getId();
+                String cocktailsDescription = cocktails.getDescription();
                 Context context = view.getContext();
                 /*
                 Send the id and changes to the inforamtion of the dinosaur screen
@@ -36,10 +36,10 @@ public class cocktail_view_holder  extends RecyclerView.ViewHolder{
             }
         });
     }
-    public void showData(cocktails dinosaur) {
+    public void showData(cocktails cocktails) {
         this.cocktails = cocktails;
         if (cocktails != null){
-            this.textView.setText(dinosaur.getName());
+            textView.setText(cocktails.getName());
             Glide.with(itemView)
                     .load(cocktails.getImage())
                     .into(Image);
