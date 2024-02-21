@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1001748018400",
+    "project_id": "licopediafirebase",
+    "storage_bucket": "licopediafirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001748018400:android:959bee2fdc029c502b8c85",
+        "android_client_info": {
+          "package_name": "com.app.licopedia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK-NviQE-TZQxbDTOMbBPmdYjwjBnkVvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
