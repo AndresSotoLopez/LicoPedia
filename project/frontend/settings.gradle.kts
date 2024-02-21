@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Licopedia"
+rootProject.name = "LicoPedia"
 include(":app")
