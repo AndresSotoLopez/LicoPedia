@@ -90,6 +90,9 @@ public class MainLicoPedia extends AppCompatActivity {
                 } else if (itemId == R.id.nav_item5) {
                     // Navegar a la Activity correspondiente para el elemento 5
                     startActivity(new Intent(MainLicoPedia.this, maps_activity.class));
+                } else if (itemId == R.id.nav_item6) {
+                    // Navegar a la Activity correspondiente para el elemento 5
+                    startActivity(new Intent(MainLicoPedia.this, Config_fragment.class));
                 }
                 
                 
@@ -236,7 +239,7 @@ public class MainLicoPedia extends AppCompatActivity {
     //Método para que al clicar en el ImageView del Perfil me lleve a dicha actividad
     public void onProfileButtonClick(View view) {
         // Manejar el clic en el botón de perfil
-        Intent intent = new Intent(this, Config_fragment.class);
+        Intent intent = new Intent(this, datos_personales.class);
         startActivity(intent);
     }
 }
