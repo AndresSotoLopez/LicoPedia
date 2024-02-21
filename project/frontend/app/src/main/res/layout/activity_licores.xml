@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LicoresFragment">
+
+    <TextView
+        android:id="@+id/text_view"
+        android:text="Licores"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/searchLicorByName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Escribe el nombre del cocktail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/licor_img" />
+
+    <ImageButton
+        android:background="@color/white"
+        android:id="@+id/searchButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="6dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/search_icon"
+        app:layout_constraintLeft_toRightOf="@id/searchLicorByName"
+        app:layout_constraintTop_toBottomOf="@+id/licor_img"
+        />
+
+    <ImageButton
+        android:id="@+id/profile_button"
+        android:layout_width="60dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        android:src="@drawable/profile"
+        app:layout_constraintLeft_toRightOf="@+id/searchLicorByName"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/conf_button"
+        android:layout_width="60dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintRight_toLeftOf="@+id/searchLicorByName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/licor_img"
+        android:layout_width="48dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/licor_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/searchLicorByName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
