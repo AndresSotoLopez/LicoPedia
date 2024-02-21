@@ -11,7 +11,14 @@
     <item name="colorOnSecondary">@color/black</item>
     <!-- Status bar color. -->
     <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
     <!-- Customize your theme here. -->
+    <style name="Base.Theme.Licopedia" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:colorPrimary">@color/black</item>
+        <item name="android:background">@color/white</item>
+
     </style>
 
     <style name="Theme.Licopedia" parent="Theme.LicoPedia">

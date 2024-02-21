@@ -3,10 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -54,12 +58,21 @@
       <activity
             android:name=".EditarCuenta"
             android:exported="false" />
+      
         <activity
+            android:name=".Licor_Seleccionado"
+            android:exported="false" />
+      
+      <activity
             android:name=".delete_account_activity"
             android:exported="false" />
 
         <activity
             android:name=".Splash_activity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".Config_fragment"
             android:exported="true">
 
             <intent-filter>
@@ -67,6 +80,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+    </application>
 </manifest>
