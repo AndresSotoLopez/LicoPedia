@@ -21,11 +21,11 @@ public class Splash_activity extends AppCompatActivity {
             public void run() {
                 // Crear un Intent para iniciar la actividad principal
 
-               Intent intent = new Intent(Splash_activity.this, MainLicoPedia.class);
+               Intent intent = new Intent(Splash_activity.this, sign_in.class);
                startActivity(intent);
 
                 // Cerrar la actividad de bienvenida para que no pueda volver atrás
-                finish();
+                finishAffinity();
             }
         }, SPLASH_DELAY);
 
