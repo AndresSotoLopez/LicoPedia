@@ -8,12 +8,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class datos_personales extends AppCompatActivity {
 
     private TextView email, password, direccion, movil;
     private Button cerrar_sesion, eliminar_cuenta;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +28,6 @@ public class datos_personales extends AppCompatActivity {
         //Asignamos los botones del xml
         cerrar_sesion = findViewById(R.id.datosp_close_session);
         eliminar_cuenta = findViewById(R.id.datosp_delete_account);
-
-        //Conseguir datos del usuario con el token que se envia desde la main_activity
-        //Con getString obtenemos el token
-
 
         //Obtenemos los datos del usuario y los sustituimos en la siguientes variables
         email = findViewById(R.id.datosp_email_data);
@@ -46,8 +47,9 @@ public class datos_personales extends AppCompatActivity {
             public void onClick(View v) {
 
                 Toast.makeText(datos_personales.this, "Prueba", Toast.LENGTH_LONG).show();
-                //Eliminar token
+                mAuth.signOut();
                 //startActivity(new Intent(datos_personales.this, login.class));
+                finishAffinity();
 
             }
         });
@@ -57,8 +59,20 @@ public class datos_personales extends AppCompatActivity {
             public void onClick(View v) {
 
                 Toast.makeText(datos_personales.this, "Prueba", Toast.LENGTH_LONG).show();
-                //Eliminar datos del usuario + sesion de usuario
-               // startActivity(new Intent(datos_personales.this, login.class));
+                if (user != null) {
+                    // Delete the user's account
+                    user.delete()
+                            .addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    // startActivity(new Intent(datos_personales.this, login.class));
+                                    finishAffinity();
+                                } else {
+                                    Toast.makeText(datos_personales.this, "No se ha podido borrar la cuenta", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+                Toast.makeText(datos_personales.this, "Error al borrar la cuenta", Toast.LENGTH_SHORT).show();
+               
 
             }
         });
