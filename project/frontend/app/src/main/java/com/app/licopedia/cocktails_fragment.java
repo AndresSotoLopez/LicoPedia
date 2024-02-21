@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
@@ -32,6 +33,7 @@ public class cocktails_fragment extends Fragment {
     private JsonArrayRequest request;
     private RecyclerView recyclerView;
     private List<cocktails> cocktailList;
+    private String user_token;
 
     public static cocktails_fragment newInstance(){
         return new cocktails_fragment();
@@ -53,9 +55,9 @@ public class cocktails_fragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(cocktails_fragment.this, MainLicoPedia.class);
-                //intent.putExtra("user-token", user_token);
-                //startActivity(intent);
+                Intent intent = new Intent(context, MainLicoPedia.class);
+                intent.putExtra("user-token", user_token);
+                startActivity(intent);
             }
 
         });
@@ -63,9 +65,9 @@ public class cocktails_fragment extends Fragment {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(cocktails_fragment.this, datos_personales.class);
-                //intent.putExtra("user-token", user_token);
-                //startActivity(intent);
+                Intent intent = new Intent(context, datos_personales.class);
+                intent.putExtra("user-token", user_token);
+                startActivity(intent);
             }
         });
 
@@ -112,8 +114,8 @@ public class cocktails_fragment extends Fragment {
                             not_found = true;
 
                         } else {
-                            cocktails_list cocktails_list = new cocktails_list(response); // Instantiate DinosaurList with the JSONArray response
-                            cocktail_adapter myAdapter = new cocktail_adapter(cocktails_list); // Pass the list from DinosaurList to the adapter
+                            cocktails_list cocktails_list = new cocktails_list(response);
+                            cocktail_adapter myAdapter = new cocktail_adapter(cocktails_list);
                             recyclerView.setAdapter(myAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(context)); // Use 'context' instead of 'this'
                         }

@@ -16,9 +16,7 @@ How to install our app:
 
 > 1.- Download this repositroy to your pc.
 
-> 2.- Go to the API folder and execute in your cmd -> python3 manage.py runsevrer
-
-> 3.- Download [Android Studio](https://developer.android.com/studio?hl=es-419), open the main folder of the app and launch it.
+> 2.- Download [Android Studio](https://developer.android.com/studio?hl=es-419), open the main folder of the app and launch it.
 
 ---
 
