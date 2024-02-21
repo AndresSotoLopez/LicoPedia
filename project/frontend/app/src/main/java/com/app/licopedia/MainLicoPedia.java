@@ -77,13 +77,15 @@ public class MainLicoPedia extends AppCompatActivity {
                 
                 if (itemId == R.id.nav_item1) {
                     // Navegar a la Activity correspondiente para el elemento 1
-                    //startActivity(new Intent(MainLicoPedia.this, MainLicoPedia.class));
+                    startActivity(new Intent(MainLicoPedia.this, MainLicoPedia.class));
                 } else if (itemId == R.id.nav_item2) {
                     // Navegar a la Activity correspondiente para el elemento 2
-                    //startActivity(new Intent(MainLicoPedia.this, .class));
+                    //startActivity(new Intent(MainLicoPedia.this, LicoresFragment.class));
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LicoresFragment()) .addToBackStack(null).commit();
                 } else if (itemId == R.id.nav_item3) {
                     // Navegar a la Activity correspondiente para el elemento 3
-                    //startActivity(new Intent(MainLicoPedia.this, .class));
+                    //startActivity(new Intent(MainLicoPedia.this, cocktails_fragment.class));
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new cocktails_fragment()) .addToBackStack(null).commit();
                 } else if (itemId == R.id.nav_item4) {
                     // Navegar a la Activity correspondiente para el elemento 4
                     startActivity(new Intent(MainLicoPedia.this, LicoresGuardadosMain.class));

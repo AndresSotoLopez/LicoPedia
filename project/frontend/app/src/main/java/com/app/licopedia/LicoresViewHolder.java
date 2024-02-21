@@ -2,6 +2,7 @@ package com.app.licopedia;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ public class LicoresViewHolder extends RecyclerView.ViewHolder{
     private LicoresData allLicores;
     private TextView textView;
     private ImageView Image;
+    private int cocktailsId;
     public LicoresViewHolder(@NonNull View itemView) {
 
     super(itemView);
@@ -23,12 +25,12 @@ public class LicoresViewHolder extends RecyclerView.ViewHolder{
         @Override
         public void onClick(View view) {
             Context context = view.getContext();
-                /*
-                Send the id and changes to the information of the dinosaur screen
+
+                //Send the id and changes to the information of the dinosaur screen
                 Intent intent = new Intent(context, Licor_Seleccionado.class);
                 intent.putExtra("id", cocktailsId);
                 context.startActivity(intent);
-                */
+
         }
     });
 }
