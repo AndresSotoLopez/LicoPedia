@@ -71,7 +71,9 @@
 
         <activity android:name=".datos_personales"
             android:exported="false"/>
-
+      
+      <activity android:name=".pantalla_preparacion"
+            android:exported="false"/>
 
         <activity
             android:name=".Splash_activity"
