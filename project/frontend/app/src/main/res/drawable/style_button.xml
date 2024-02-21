@@ -15,7 +15,7 @@
             <corners android:radius="20dp" />
         </shape>
     </item>
-    
+
     <shape>
         <solid android:color="@color/red" /> <!-- Color de fondo del botón -->
         <corners android:radius="20dp" /> <!-- Radio de las esquinas, ajusta según sea necesario -->
