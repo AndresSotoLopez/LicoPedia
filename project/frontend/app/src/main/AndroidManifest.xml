@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -30,6 +33,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDycQMW9AGWJiG0kC7KRP-ucTbFjp06-mM" />
 
+
+
         <activity
             android:name=".maps_activity"
             android:exported="false"
@@ -37,7 +42,7 @@
 
         <activity
             android:name=".sign_in"
-            android:exported="false" />
+            android:exported="true" />
 
         <activity
             android:name=".MainLicoPedia"
@@ -45,9 +50,6 @@
 
         <activity
             android:name=".LicoresGuardadosMain"
-            android:exported="false" />
-      <activity
-            android:name=".EditarCuenta"
             android:exported="false" />
       
         <activity
@@ -78,6 +80,7 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
