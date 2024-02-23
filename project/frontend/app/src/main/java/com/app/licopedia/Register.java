@@ -92,12 +92,14 @@ public class Register extends AppCompatActivity {
                                 .addOnCompleteListener(taskDb -> {
                                    if (taskDb.isSuccessful()) {
                                        Toast.makeText(Register.this, "Registro exitoso", Toast.LENGTH_LONG).show();
-                                       //startActivity(new Intent(Register.this, sign_in.class));
-                                       finish();
+                                       
                                    } else {
                                        Toast.makeText(Register.this, "Error al guardar los datos: " + taskDb.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                    }
                                 });
+                        
+                        startActivity(new Intent(Register.this, MainLicoPedia.class));
+                        finishAffinity();
                     } else {
                         Log.e("TagError", task.getException().getMessage());
                         Toast.makeText(Register.this, "Registro fallido: " +

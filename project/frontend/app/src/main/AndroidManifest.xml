@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,8 +18,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Licopedia"
         tools:targetApi="31">
-
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -70,6 +67,13 @@
 
         <activity android:name=".Config_fragment"
             android:exported="false"/>
+
+        <activity android:name=".datos_personales"
+            android:exported="false"/>
+      
+      <activity android:name=".pantalla_preparacion"
+            android:exported="false"/>
+
         <activity
             android:name=".Splash_activity"
             android:exported="true">

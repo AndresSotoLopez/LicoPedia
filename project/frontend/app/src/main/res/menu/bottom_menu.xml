@@ -13,8 +13,8 @@
         android:icon="@drawable/licores"/>
     <item
         android:id="@+id/nav_item3"
-        android:title="Búsqueda"
-        android:icon="@drawable/lupa"/>
+        android:title="Cócteles"
+        android:icon="@drawable/cocktail_image"/>
     <item
         android:id="@+id/nav_item4"
         android:title="Guardados"
