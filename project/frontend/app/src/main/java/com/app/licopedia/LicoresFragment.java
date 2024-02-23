@@ -49,8 +49,12 @@ public class LicoresFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent(context, MainLicoPedia.class);
+              //  intent.putExtra("user-token", user_token);=======
                 Intent intent = new Intent(requireContext(), MainLicoPedia.class);
                 intent.putExtra("user-token", user_token);
+
                 startActivity(intent);
             }
 
@@ -59,9 +63,15 @@ public class LicoresFragment extends Fragment {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+             //   Intent intent = new Intent(context, datos_personales.class);
+              //  intent.putExtra("user-token", user_token);
+              //  startActivity(intent);
+
                 Intent intent = new Intent(requireContext(), datos_personales.class);
                 intent.putExtra("user-token", user_token);
                 startActivity(intent);
+
             }
         });
 

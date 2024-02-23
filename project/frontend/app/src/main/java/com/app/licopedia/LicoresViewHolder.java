@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
+import kotlinx.coroutines.channels.Send;
+
 public class LicoresViewHolder extends RecyclerView.ViewHolder{
     private LicoresData allLicores;
     private TextView textView;
@@ -26,9 +28,13 @@ public class LicoresViewHolder extends RecyclerView.ViewHolder{
         public void onClick(View view) {
             Context context = view.getContext();
 
+
+             //   Send the id and changes to the information of the dinosaur screen
+
                 //Send the id and changes to the information of the dinosaur screen
+
                 Intent intent = new Intent(context, Licor_Seleccionado.class);
-                intent.putExtra("id", cocktailsId);
+              //  intent.putExtra("id", cocktailsId);
                 context.startActivity(intent);
 
         }
