@@ -53,7 +53,7 @@ public class Licor_Seleccionado extends AppCompatActivity {
         licor_link1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            /*    Intent intent =  new Intent(context, pantalla_preparacion.class);
+             /*   Intent intent =  new Intent(context, pantalla_preparacion.class);
                 context.startActivity(intent);*/
             }
         });
@@ -61,7 +61,7 @@ public class Licor_Seleccionado extends AppCompatActivity {
         licor_link2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            /*    Intent intent =  new Intent(context, pantalla_preparacion.class);
+              /*  Intent intent =  new Intent(context, pantalla_preparacion.class);
                 context.startActivity(intent);*/
             }
         });

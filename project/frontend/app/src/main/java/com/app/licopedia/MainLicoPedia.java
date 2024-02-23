@@ -80,10 +80,10 @@ public class MainLicoPedia extends AppCompatActivity {
                     startActivity(new Intent(MainLicoPedia.this, MainLicoPedia.class));
                 } else if (itemId == R.id.nav_item2) {
                     // Navegar a la Activity correspondiente para el elemento 2
-                    //startActivity(new Intent(MainLicoPedia.this, ActivityItem2.class));
+                    //startActivity(new Intent(MainLicoPedia.this, .class));
                 } else if (itemId == R.id.nav_item3) {
                     // Navegar a la Activity correspondiente para el elemento 3
-                    //startActivity(new Intent(MainLicoPedia.this, cocktails_activity.class));
+                    //startActivity(new Intent(MainLicoPedia.this, .class));
                 } else if (itemId == R.id.nav_item4) {
                     // Navegar a la Activity correspondiente para el elemento 4
                     startActivity(new Intent(MainLicoPedia.this, LicoresGuardadosMain.class));
@@ -236,8 +236,8 @@ public class MainLicoPedia extends AppCompatActivity {
     //Método para que al clicar en el ImageView del Perfil me lleve a dicha actividad
     public void onProfileButtonClick(View view) {
         // Manejar el clic en el botón de perfil
-        //Intent intent = new Intent(this, Config_fragment.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, Config_fragment.class);
+        startActivity(intent);
     }
 }
 

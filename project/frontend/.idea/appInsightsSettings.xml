@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.app.licopedia" />
-                  <option name="mobileSdkAppId" value="1:325989499965:android:b70faf62b9927317829654" />
-                  <option name="projectId" value="licopedia-572c7" />
-                  <option name="projectNumber" value="325989499965" />
+                  <option name="mobileSdkAppId" value="1:1001748018400:android:959bee2fdc029c502b8c85" />
+                  <option name="projectId" value="licopediafirebase" />
+                  <option name="projectNumber" value="1001748018400" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
