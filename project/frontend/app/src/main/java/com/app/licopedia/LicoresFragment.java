@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,9 +48,9 @@ public class LicoresFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(LicoresFragment.this, MainLicoPedia.class);
-                //intent.putExtra("user-token", user_token);
-                //startActivity(intent);
+                Intent intent = new Intent(context, MainLicoPedia.class);
+              //  intent.putExtra("user-token", user_token);
+                startActivity(intent);
             }
 
         });
@@ -57,9 +58,9 @@ public class LicoresFragment extends Fragment {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(LicoresFragment.this, datos_personales.class);
-                //intent.putExtra("user-token", user_token);
-                //startActivity(intent);
+             //   Intent intent = new Intent(context, datos_personales.class);
+              //  intent.putExtra("user-token", user_token);
+              //  startActivity(intent);
             }
         });
 

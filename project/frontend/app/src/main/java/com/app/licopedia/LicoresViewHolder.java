@@ -2,6 +2,7 @@ package com.app.licopedia;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+
+import kotlinx.coroutines.channels.Send;
 
 public class LicoresViewHolder extends RecyclerView.ViewHolder{
     private LicoresData allLicores;
@@ -23,12 +26,12 @@ public class LicoresViewHolder extends RecyclerView.ViewHolder{
         @Override
         public void onClick(View view) {
             Context context = view.getContext();
-                /*
-                Send the id and changes to the information of the dinosaur screen
+
+             //   Send the id and changes to the information of the dinosaur screen
                 Intent intent = new Intent(context, Licor_Seleccionado.class);
-                intent.putExtra("id", cocktailsId);
+              //  intent.putExtra("id", cocktailsId);
                 context.startActivity(intent);
-                */
+
         }
     });
 }
