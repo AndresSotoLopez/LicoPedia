@@ -63,7 +63,7 @@ public class EditarCuenta extends Fragment {
             public void onClick(View v) {
                 //Acepta el cambio y guardarlo, luego vuelve a la configuracion
                 
-                // startActivity(new Intent(Configuracion.this, login.class));
+                 startActivity(new Intent(context, sign_in.class));
                 Toast.makeText(context, "Se han guardado correctamente los cambios.", Toast.LENGTH_SHORT).show();
 
             }

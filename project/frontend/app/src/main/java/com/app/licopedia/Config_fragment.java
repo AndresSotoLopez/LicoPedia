@@ -40,7 +40,7 @@ public class Config_fragment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 
-                //startActivity(new Intent(context, .class));
+                startActivity(new Intent(context,sign_in.class));
                 
             }
         });
